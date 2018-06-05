@@ -12,10 +12,15 @@ onlineretail <- as.data.frame(read_excel("Online Retail.xlsx"))
 head(onlineretail)
 
 
-
 # Plotting world map
 ddf <- as.data.frame(table(onlineretail$Country))
 names(ddf) <- c("country", "value")
 ddf$value <- log(ddf$value)
 spdf <- joinCountryData2Map(ddf, joinCode="NAME", nameJoinColumn="country")
-mapCountryData(spdf, nameColumnToPlot="value", catMethod="fixedWidth")
+mapCountryData(spdf, nameColumnToPlot="value", 
+               catMethod="fixedWidth", 
+               mapTitle = "Countries with more purchases")
+
+
+
+
